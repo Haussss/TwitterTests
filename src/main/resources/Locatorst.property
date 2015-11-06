@@ -1,0 +1,17 @@
+#region Login form
+
+Login.user=id=signin-email
+Login.pswd=id=signin-password
+Login.button=css=.submit[type='submit']
+
+#endregion
+
+#region Register Page
+Registr.user=css=#full-name
+Registr.email=id=email
+Registr.pswd=id=password
+Registr.button=id=submit_button
+Registr.valid.email=css=.email .error.active
+Registr.activevalid.email=css=.email .error.active
+Registr.valid2.pswd=css=.prompt password p[class='invalid error active']
+#endregion
