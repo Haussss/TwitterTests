@@ -1,2 +1,3 @@
 email,pass,email_validation,pass_validation
-valid, invalid, (empty)
+valid, invalid, (empty),errormessage
+valid, invalidpass, (empty),errormessage

@@ -36,4 +36,9 @@ public class TwitterTests {
         Assert.assertTrue(getDrivet().findElement(Locators.get("Registr.valid.email")).isDisplayed());
         Assert.assertTrue(getDrivet().findElement(Locators.get("Registr.valid2.pswd")).isDisplayed());
     }
+    @Test(dataProvider = "registrationData",dataProviderClass = DataProviders.class)
+    public void
+    passInvalidTest(String email, String pass,String emailValidation,String passValidation){
+
+    }
 }
