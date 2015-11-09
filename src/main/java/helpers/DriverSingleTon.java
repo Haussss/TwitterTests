@@ -47,6 +47,7 @@ public class DriverSingleTon {
     public static void quit() {
         if (driver != null) {
             driver.quit();
+            driver = null;
         }
     }
 }
