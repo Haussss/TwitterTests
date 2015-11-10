@@ -1,3 +1,7 @@
-loginame;bgfdgd@gmail.com;12333; Введите действительный адрес электронной почты; Ваш пароль должен состоять как минимум из 6 символов.
-loginame;hathi;sdsds2; Введите действительный адрес электронной почты; Ваш пароль должен состоять как минимум из 6 символов.
-loginame;hathi;sdsds; Введите действительный адрес электронной почты; Ваш пароль должен состоять как минимум из 6 символов.
+user,valid123421@email.com,pass,,Your password must be at least 6 characters., , , , , ,
+user,invalid,passwrd123,Please enter a valid email address., , , , , , ,
+user,5555555,pasword123,,,Please enter a valid phone number., , , , ,
+user,valid123421@email.com,password,,,,Please enter a stronger password., , , ,
+user,valid@email.com,pass123,,,,,This email is already registered. Want to login or recover your password?, , ,
+ ,valid123421@email.com,password,,,,,,What's your name?, ,
+twitter,valid123421@email.com,password,,,,,,,Your full name can't include the word "Twitter".

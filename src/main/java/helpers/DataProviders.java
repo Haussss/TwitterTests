@@ -2,31 +2,27 @@ package helpers;
 
 import org.testng.annotations.DataProvider;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
 import java.util.List;
 
 public class DataProviders {
-    private static final String  REGISTRATION_DATA_FILE = "./src/main/resources/registrationData.csv";
+    private static final String REGISTRATION_DATA_FILE = "./src/main/resources/RegistrationData.csv";
+
     @DataProvider(name = "registrationData")
     public static Object[][] getRegistrationData() throws IOException {
-
-        return getData(REGISTRATION_DATA_FILE, ";");
+        return getData(REGISTRATION_DATA_FILE, ",");
     }
-    private static Object[][] getData(String path, String devider) throws IOException {
-        List<String> data = Helpers.readAllLines(path);
-        Object[][] dataRows = new Object[data.size()][data.get(0).split(devider).length];
-        for (int i = 0; i < data.size() ; i++) {
-            for (int j = 0; j < data.get(0).split(";").length ; j++) {
-                dataRows[i] = data.get(i).split(";");
-            }
 
+    private static Object[][] getData(String path, String divider) throws IOException {
+        List<String> data = Helpers.readAllLines(path);
+        Object[][] dataRows = new Object[data.size()][];
+        for (int i = 0; i < data.size(); i++) {
+            dataRows[i] = data.get(i).split(divider);
         }
         return dataRows;
     }
-    }
+}
+
 
 //public class DataProviders {
 //
