@@ -4,7 +4,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 
@@ -25,20 +28,47 @@ public class DriverSingleTon {
     }
 
     public static WebDriver initDriver(String browser) {
-       // String browserName = System.getProperty( browser,"browser" );
-        switch (browser) {
-            case "chrome":
-                driver = new ChromeDriver();
-                break;
-            case "firefox":
-                driver = new FirefoxDriver();
-                break;
-            case "ie":
-                driver = new InternetExplorerDriver();
-                break;
-            default:
-                driver = new ChromeDriver();
-                break;
+        String browserName = System.getProperty("browser", browser);
+        String remote = System.getProperty("remote","local");
+        if (remote.equals("local")) {
+            switch (browser) {
+                case "chrome":
+                    driver = new ChromeDriver();
+                    break;
+                case "firefox":
+                    driver = new FirefoxDriver();
+                    break;
+                case "ie":
+                    driver = new InternetExplorerDriver();
+                    break;
+                default:
+                    driver = new ChromeDriver();
+                    break;
+            }
+        }
+        else {
+            DesiredCapabilities caps;
+            switch (browserName) {
+
+                case "chrome": default:
+                    caps = DesiredCapabilities.chrome();
+                    break;
+                case "firefox":
+                    caps = DesiredCapabilities.firefox();
+                    break;
+                case "ie":
+                    caps = DesiredCapabilities.internetExplorer();
+                    break;
+
+
+
+            }
+             try {
+                 driver = new RemoteWebDriver(new URL(remote),caps);
+             }catch (Exception ex){
+                 System.out.println(ex.getMessage());
+             }
+
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

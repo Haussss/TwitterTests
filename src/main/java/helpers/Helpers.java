@@ -1,9 +1,7 @@
 package helpers;
 
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -47,5 +45,19 @@ public class Helpers {
         return Files.readAllLines(new File(resourcePath).toPath(), Charset.defaultCharset());
     }
 
+public void saveScreenshots(String path){
+    TakesScreenshot screenshotMaker = (TakesScreenshot) getDtiver();
+    File screen = screenshotMaker.getScreenshotAs(OutputType.FILE);
+    try {
+        FileUtils.copyFile(screen,new File("path*"));
+    }catch (IOException e){
+        System.out.println(e.getMessage());
+    }
 
+
+
+}
+
+
+    
 }
