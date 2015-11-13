@@ -1,12 +1,13 @@
     import helpers.DataProviders;
     import helpers.DriverSingleTon;
+    import helpers.Helpers;
+    import org.openqa.selenium.By;
     import org.openqa.selenium.WebElement;
     import org.testng.Assert;
     import org.testng.annotations.AfterMethod;
     import org.testng.annotations.BeforeMethod;
     import org.testng.annotations.Test;
     import pages.RegisterPage;
-
     import java.io.IOException;
     import java.util.List;
 
@@ -15,10 +16,10 @@
 
     public class TwitterTests {
         public static final String BASE_URL = "https://twitter.com/signup?lang=en-gb";
-        @BeforeMethod(alwaysRun = true)
-        public void setup(){
-            getDriver().get(BASE_URL);
-        }
+//        @BeforeMethod(alwaysRun = true)
+//        public void setup(){
+//            getDriver().get(BASE_URL);
+//        }
         @AfterMethod(alwaysRun = true)
         public void teardown() {
             DriverSingleTon.quit();
@@ -27,11 +28,23 @@
         @Test
         public void signUpTest1(){
             List<WebElement>validations= RegisterPage.getValidationMessages();
-            Assert.assertEquals(validations.size(),1);
-            WebElement validation =getDriver().findElement(RegisterPage.ACTIVE_EMAIL_VALIDATION);
+            Assert.assertEquals(validations.size(), 0);
+            WebElement validation = getDriver().findElement(RegisterPage.EMAIL_FIELD);
+            validation.sendKeys("fsdfs");
             Assert.assertTrue(validation.isDisplayed());
+            Helpers.saveScreenshots("D:\\Haussss\\Screenshots\\screenshot.png");
+            Helpers.saveScreenshots(RegisterPage.EMAIL_FIELD,"D:\\Haussss\\Screenshots\\screenshot.png");
             Assert.assertEquals(validation.getText(), "");
-            Assert.assertEquals(RegisterPage.getValidationMessages().size(),1);
+            Assert.assertEquals(RegisterPage.getValidationMessages().size(), 1);
+        }
+        @Test
+        public void loginTest(){
+
+            getDriver().get("http://the-internet.herokuapp.com/login");
+            getDriver().findElement(By.id("username")).sendKeys("tomsmith");
+            Assert.assertEquals(getDriver().findElement(By.id("username")).getAttribute("value"),"tomsmith");
+//            Assert.assertTrue(getDriver().findElement(By.cssSelector("#flash.success")).isDisplayed());
+//            Assert.assertTrue(getDriver().findElement(By.cssSelector("a[href='/logout']")).isDisplayed());
         }
         @Test(dataProvider = "registrationData", dataProviderClass = DataProviders.class)
         public void signUpTes(String user, String email, String pass, String emailValidation, String passValidation,String phoneValidation,
