@@ -31,18 +31,17 @@ public class main
         WebElement button = getDriver().findElement(By.id("form_submit"));
         button.click();
         Thread.sleep(200);
-        WebDriver driver2 = new HtmlUnitDriver();
-        driver2.get("https://www.guerrillamail.com");
-        WebElement butt = driver2.findElement(By.id("inbox-id"));
+        getDriver().get("https://www.guerrillamail.com");
+        WebElement butt = getDriver().findElement(By.id("inbox-id"));
         butt.click();
-        butt.sendKeys("XaycuTo");
-        WebElement butt2 = driver2.findElement(By.cssSelector(".save"));
+        getDriver().findElement(By.cssSelector("input[type='text']")).sendKeys("XaycuTo");
+        WebElement butt2 = getDriver().findElement(By.cssSelector(".save"));
         butt2.click();
-        driver2.findElement(By.id("email.list"));
-        Assert.assertFalse(driver2.findElement(By.cssSelector(".mail_row")).isDisplayed());
-        Assert.assertEquals(driver2.findElement(By.cssSelector(".mail_row .td2")).getText(), "no-reply@the-internet.herokuapp.com ");
-        driver2.findElement(By.cssSelector(".mail_row .td2")).click();
-        Assert.assertEquals(driver2.findElement(By.cssSelector(".email_subject")).getText(), "Forgot Password from the-internet");
+        getDriver().findElement(By.id("email.list"));
+        Assert.assertFalse(getDriver().findElement(By.cssSelector(".mail_row")).isDisplayed());
+        Assert.assertEquals(getDriver().findElement(By.cssSelector(".mail_row .td2")).getText(), "no-reply@the-internet.herokuapp.com ");
+        getDriver().findElement(By.cssSelector(".mail_row .td2")).click();
+        Assert.assertEquals(getDriver().findElement(By.cssSelector(".email_subject")).getText(), "Forgot Password from the-internet");
 
     }
 //    public void sada(){
