@@ -2,7 +2,7 @@ package helpers;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
-import static helpers.DriverSingleTon.getDriver;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -45,28 +45,19 @@ public class Helpers {
         return Files.readAllLines(new File(resourcePath).toPath(), Charset.defaultCharset());
     }
 
-public static void saveScreenshots(By element,String path) {
-    TakesScreenshot screenMaker = (TakesScreenshot) (getDriver().findElement(element));
-    File screen = screenMaker.getScreenshotAs(OutputType.FILE);
+public void saveScreenshots(String path){
+    TakesScreenshot screenshotMaker = (TakesScreenshot) getDtiver();
+    File screen = screenshotMaker.getScreenshotAs(OutputType.FILE);
     try {
-        FileUtils.copyFile(screen, new File("D:\\Haussss\\Screenshots\\screenshot.png"));
-    } catch (IOException e) {
+        FileUtils.copyFile(screen,new File("path*"));
+    }catch (IOException e){
         System.out.println(e.getMessage());
     }
 
-}
-    public static void saveScreenshots(String path) {
-        TakesScreenshot screenMaker = (TakesScreenshot)getDriver();
-        File screen = screenMaker.getScreenshotAs(OutputType.FILE);
-        try {
-            FileUtils.copyFile(screen, new File("D:\\Haussss\\Screenshots\\screenshot.png"));
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
 
-    }
 
 }
 
 
-
+    
+}
