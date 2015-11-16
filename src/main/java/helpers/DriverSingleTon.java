@@ -72,7 +72,7 @@ public class DriverSingleTon {
                     caps = DesiredCapabilities.internetExplorer();
                     break;
                 case "htmlunit":
-                    caps = DesiredCapabilities.htmlUnitWithJs();
+ //                   caps = DesiredCapabilities.htmlUnitWithJs();
                     break;
                 case "phantomjs":
                     caps = DesiredCapabilities.phantomjs();
@@ -81,7 +81,7 @@ public class DriverSingleTon {
 
             }
              try {
-                 driver = new RemoteWebDriver(new URL(remote),caps);
+ //                driver = new RemoteWebDriver(new URL(remote),caps);
              }catch (Exception ex){
                  System.out.println(ex.getMessage());
              }
