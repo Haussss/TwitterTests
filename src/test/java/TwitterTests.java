@@ -50,7 +50,7 @@ public class TwitterTests {
     }
 
     @Test(dataProvider = "registrationData", dataProviderClass = DataProviders.class)
-    public void signUpTes(String user, String email, String pass, String emailValidation, String passValidation, String phoneValidation,
+    public void signUpTest(String user, String email, String pass, String emailValidation, String passValidation, String phoneValidation,
                           String strPassValidation, String takenPassValidation, String nameValidation, String twittNameValidation) throws IOException, InterruptedException {
         RegisterPage.fillForm(user, email, pass);
         int validations = 0;
