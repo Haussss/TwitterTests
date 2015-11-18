@@ -1,4 +1,4 @@
-/**
+package BrowserMobProxyExamples; /**
  * Created by Admin on 16.11.2015.
  */
 
@@ -16,28 +16,6 @@
 
     public class BrowserMobProxyTest {
         @Test
-//        public void bmpTest() throws Exception {
-//            // запуск прокси сервера
-//            ProxyServer server = new ProxyServer(4444);
-//            server.start();
-//
-//            // получение Selenium proxy
-//            Proxy proxy = server.seleniumProxy();
-//
-//            // конфигурация FirefoxDriver для использования прокси
-//            DesiredCapabilities capabilities = new DesiredCapabilities();
-//            capabilities.setCapability(CapabilityType.PROXY, proxy);
-//
-//            WebDriver driver = new FirefoxDriver(capabilities);
-//
-//            // открытие страницы
-//            driver.get(SOME_URL);
-//
-//            // здесь основная часть теста
-//
-//            driver.quit();
-//            server.stop();
-//        }
         public void bawTest() throws Exception {
             ProxyServer server = new ProxyServer(4424);
 
