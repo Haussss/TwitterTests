@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -111,7 +113,11 @@ public class Helpers {
 
     }
 
-    public static void emailVerify() {
-
+    public static List<String > getElementTexts(Collection<WebElement> elements) {
+        List<String > texts = new ArrayList<>();
+        for(WebElement element : elements){
+            texts.add(element.getText());
+        }
+        return texts;
     }
 }

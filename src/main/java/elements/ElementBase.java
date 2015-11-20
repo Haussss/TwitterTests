@@ -14,6 +14,16 @@ public abstract class ElementBase {
         this.locator = locator;
         wrappedElement = host.findElement(locator);
     }
+    public void click(){
+        wrappedElement.click();
+        return null;
+    }
+    public void focus(){
+        wrappedElement.sendKeys("");
+    }
+    public boolean isDisplayed(){
+        return wrappedElement.isDisplayed();
+    }
     public WebElement getWrappedElement(){
         return wrappedElement;
     }

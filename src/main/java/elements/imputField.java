@@ -5,7 +5,7 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class imputField extends ElementBase{
+public class imputField extends HasText{
     public imputField(SearchContext host, By locator) {
     super(host,locator);
     }
@@ -19,8 +19,9 @@ public class imputField extends ElementBase{
         clear();
         append(text);
     }
-    public void getText(){
-        wrappedElement.getAttribute("value");
+    @Override
+    public String getText(){
+        return wrappedElement.getAttribute("value");
     }
     public boolean isEnabled(){
         return wrappedElement.isEnabled();
